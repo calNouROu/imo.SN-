@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Contactez IMO SN, votre agence immobilière au Sénégal, par téléphone, WhatsApp ou formulaire.">
+    <title>Contact | IMO SN — Agence immobilière au Sénégal</title>
+    <link rel="icon" type="image/png" href="assets/logo-immo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="site-pages.css">
+</head>
+<body>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="IMO SN Accueil"><img src="assets/logo-immo.png" alt="IMO SN" class="nav-logo-img"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="biens.html" class="nav-link">Nos biens</a></li>
+                <li><a href="index.html#a-propos" class="nav-link">À propos</a></li>
+                <li><a href="contact.html" class="nav-link active" aria-current="page">Contact</a></li>
+                <li><a href="publicite.html" class="nav-link">Publicité</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode sombre"><i class="fas fa-moon"></i></button>
+                <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+
+    <header class="page-hero">
+        <div class="container">
+            <span class="section-tag">À votre écoute</span>
+            <h1>Parlons de votre projet immobilier</h1>
+            <p>L’équipe IMO SN vous accompagne pour trouver un bien, organiser une visite ou répondre à vos questions.</p>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container page-grid">
+            <section class="page-card" aria-labelledby="contact-coordinates">
+                <h2 id="contact-coordinates">Contacter l’agence</h2>
+                <p>Choisissez le moyen de contact qui vous convient. Pour un bien précis, indiquez sa référence dans votre message.</p>
+                <ul class="page-contact-list">
+                    <li><i class="fas fa-phone" aria-hidden="true"></i><div><strong>Téléphone</strong><br><a id="contactPhoneLink" href="tel:+221789846529">+221 78 984 65 29</a></div></li>
+                    <li><i class="fab fa-whatsapp" aria-hidden="true"></i><div><strong>WhatsApp</strong><br><a id="contactWhatsappLink" href="https://wa.me/221789846529" target="_blank" rel="noopener noreferrer">Écrire à IMO SN</a></div></li>
+                    <li><i class="fas fa-location-dot" aria-hidden="true"></i><div><strong>Adresse professionnelle</strong><br><span id="contactAddress">Malika, Cité Sonatel, Dakar, Sénégal</span></div></li>
+                    <li><i class="fas fa-envelope" aria-hidden="true"></i><div><strong>E-mail</strong><br><a id="contactEmailLink" href="mailto:contact@imo-sn.com">contact@imo-sn.com</a></div></li>
+                    <li><i class="fas fa-clock" aria-hidden="true"></i><div><strong>Horaires</strong><br><span id="contactHours">Lun - Sam : 8h - 18h</span></div></li>
+                </ul>
+            </section>
+
+            <section class="page-card" aria-labelledby="contact-form-heading">
+                <h2 id="contact-form-heading">Envoyer un message</h2>
+                <form class="page-form" id="contactPageForm">
+                    <input id="contactPropertyId" name="propertyId" type="hidden">
+                    <input id="contactPropertyTitle" name="propertyTitle" type="hidden">
+                    <div class="form-group">
+                        <label for="contactPageName">Nom complet *</label>
+                        <input id="contactPageName" name="name" autocomplete="name" maxlength="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPageEmail">E-mail</label>
+                        <input id="contactPageEmail" name="email" type="email" autocomplete="email" maxlength="150">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPagePhone">Téléphone</label>
+                        <input id="contactPagePhone" name="phone" type="tel" autocomplete="tel" maxlength="30">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPageSubject">Objet</label>
+                        <select id="contactPageSubject" name="subject">
+                            <option value="Renseignement immobilier">Renseignement immobilier</option>
+                            <option value="Demande de visite">Demande de visite</option>
+                            <option value="Offre publicitaire">Offre publicitaire</option>
+                            <option value="Autre demande">Autre demande</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPageMessage">Votre message *</label>
+                        <textarea id="contactPageMessage" name="message" maxlength="2000" required></textarea>
+                    </div>
+                    <p class="page-form-status" id="contactPageStatus" role="status" aria-live="polite"></p>
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer à IMO SN</button>
+                    <small>Ce formulaire transmet votre demande à l’agence IMO SN. Il ne crée pas de compte.</small>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col--brand"><a href="index.html" class="footer-logo-wrap"><img src="assets/logo-immo.png" alt="IMO SN" class="footer-logo"></a><p class="footer-desc">Agence immobilière indépendante au Sénégal. Les biens sont sélectionnés et publiés par IMO SN.</p></div>
+                <div class="footer-col"><h2 class="footer-heading">Navigation</h2><ul class="footer-links"><li><a href="index.html">Accueil</a></li><li><a href="biens.html">Nos biens</a></li><li><a href="index.html#a-propos">À propos</a></li><li><a href="publicite.html">Publicité</a></li></ul></div>
+                <div class="footer-col"><h2 class="footer-heading">Contact</h2><ul class="footer-contact"><li><i class="fas fa-phone"></i><a id="footerPhone" href="tel:+221789846529">+221 78 984 65 29</a></li><li><i class="fab fa-whatsapp"></i><a id="footerWhatsapp" href="https://wa.me/221789846529">WhatsApp</a></li><li><i class="fas fa-location-dot"></i><span id="footerAddress">Dakar, Sénégal</span></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; <span id="currentYear">2026</span> <strong>IMO SN</strong>. Tous droits réservés.</p></div>
+        </div>
+    </footer>
+    <div class="toast" id="toastNotification" role="status" aria-live="polite"><i class="fas fa-check-circle"></i><span id="toastMessage"></span></div>
+    <script src="config.js" onerror="window.__API_BASE_URL__=''; window.__IMO_PHONE__='+221789846529'; window.__IMO_WHATSAPP__='+221789846529';"></script>
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>

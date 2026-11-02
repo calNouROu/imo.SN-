@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Découvrez les solutions de visibilité et les offres publicitaires proposées par IMO SN aux entreprises partenaires au Sénégal.">
+    <title>Publicité & Partenariats | IMO SN</title>
+    <link rel="icon" type="image/png" href="assets/logo-immo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="site-pages.css">
+</head>
+<body>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="IMO SN Accueil"><img src="assets/logo-immo.png" alt="IMO SN" class="nav-logo-img"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="biens.html" class="nav-link">Nos biens</a></li>
+                <li><a href="index.html#a-propos" class="nav-link">À propos</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="publicite.html" class="nav-link active" aria-current="page">Publicité</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode sombre"><i class="fas fa-moon"></i></button>
+                <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+
+    <header class="page-hero">
+        <div class="container">
+            <span class="section-tag">Partenariats professionnels</span>
+            <h1>Donnez de la visibilité à votre marque</h1>
+            <p>IMO SN propose aux entreprises des espaces de communication sur ses supports immobiliers et auprès d’une audience intéressée par le logement et l’investissement au Sénégal.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-content">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Nos formats</span>
+                    <h2 class="section-title">Des solutions adaptées à votre activité</h2>
+                    <p class="section-subtitle">Chaque campagne est étudiée avec notre équipe et fait l’objet d’une validation éditoriale par IMO SN.</p>
+                </div>
+                <div class="offer-grid">
+                    <article class="page-card offer-card">
+                        <span class="offer-icon"><i class="fas fa-rectangle-ad" aria-hidden="true"></i></span>
+                        <h3>Bannière sur le site</h3>
+                        <p>Présentez votre marque sur les espaces de visibilité disponibles sur le site IMO SN.</p>
+                        <a class="btn btn-outline-primary" href="contact.html?subject=publicite">Demander un devis</a>
+                    </article>
+                    <article class="page-card offer-card">
+                        <span class="offer-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+                        <h3>Mise en avant partenaire</h3>
+                        <p>Associez votre entreprise à une sélection de contenus et de services immobiliers pertinents.</p>
+                        <a class="btn btn-outline-primary" href="contact.html?subject=publicite">Parler à l’équipe</a>
+                    </article>
+                    <article class="page-card offer-card">
+                        <span class="offer-icon"><i class="fas fa-bullhorn" aria-hidden="true"></i></span>
+                        <h3>Campagne sur mesure</h3>
+                        <p>Définissons ensemble le format, la durée et les objectifs de votre communication.</p>
+                        <a class="btn btn-outline-primary" href="contact.html?subject=publicite">Construire une campagne</a>
+                    </article>
+                </div>
+                <p class="page-form-status" style="text-align:center; margin-top:20px;">Les tarifs et disponibilités sont communiqués sur devis après étude de votre demande.</p>
+            </div>
+        </section>
+
+        <section class="page-content" id="campagnes-actives" hidden>
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Partenaires</span>
+                    <h2 class="section-title">Campagnes actuellement publiées</h2>
+                </div>
+                <div class="offer-grid" id="activeAdsGrid" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="section section--cta">
+            <div class="container">
+                <div class="cta-box">
+                    <div class="cta-content">
+                        <h2>Parlons de votre prochaine campagne</h2>
+                        <p>Les partenaires n’ont pas d’accès à l’administration : IMO SN valide et publie chaque campagne.</p>
+                        <a href="contact.html?subject=publicite" class="btn btn-primary btn-white"><i class="fas fa-envelope" aria-hidden="true"></i> Contacter IMO SN</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"><div class="container"><div class="footer-grid">
+        <div class="footer-col footer-col--brand"><a href="index.html" class="footer-logo-wrap"><img src="assets/logo-immo.png" alt="IMO SN" class="footer-logo"></a><p class="footer-desc">Agence immobilière indépendante au Sénégal.</p></div>
+        <div class="footer-col"><h2 class="footer-heading">Navigation</h2><ul class="footer-links"><li><a href="index.html">Accueil</a></li><li><a href="biens.html">Nos biens</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h2 class="footer-heading">Contact</h2><ul class="footer-contact"><li><i class="fas fa-phone"></i><a id="footerPhone" href="tel:+221789846529">+221 78 984 65 29</a></li><li><i class="fab fa-whatsapp"></i><a id="footerWhatsapp" href="https://wa.me/221789846529">WhatsApp</a></li><li><i class="fas fa-location-dot"></i><span id="footerAddress">Dakar, Sénégal</span></li></ul></div>
+    </div><div class="footer-bottom"><p>&copy; <span id="currentYear">2026</span> <strong>IMO SN</strong>. Tous droits réservés.</p></div></div></footer>
+    <div class="toast" id="toastNotification" role="status" aria-live="polite"><i class="fas fa-check-circle"></i><span id="toastMessage"></span></div>
+    <script src="config.js" onerror="window.__API_BASE_URL__=''; window.__IMO_PHONE__='+221789846529'; window.__IMO_WHATSAPP__='+221789846529';"></script>
+    <script src="script.js"></script>
+    <script src="publicite.js"></script>
+</body>
+</html>

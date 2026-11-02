@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Découvrez les détails de ce bien immobilier proposé par IMO SN au Sénégal.">
+    <title>Détail du bien | IMO SN</title>
+    <link rel="icon" type="image/png" href="assets/logo-immo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="site-pages.css">
+</head>
+<body>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="IMO SN Accueil"><img src="assets/logo-immo.png" alt="IMO SN" class="nav-logo-img"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="biens.html" class="nav-link active" aria-current="page">Nos biens</a></li>
+                <li><a href="index.html#a-propos" class="nav-link">À propos</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="publicite.html" class="nav-link">Publicité</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode sombre"><i class="fas fa-moon"></i></button>
+                <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+    <header class="page-hero">
+        <div class="container">
+            <span class="section-tag">Sélection IMO SN</span>
+            <h1 id="detailTitle">Chargement du bien…</h1>
+            <p id="detailLocation"></p>
+        </div>
+    </header>
+    <main class="page-content">
+        <div class="container" id="detailContent" aria-live="polite">
+            <p id="detailMessage" role="status">Nous récupérons les informations de cette annonce.</p>
+            <div class="property-detail-layout" id="detailLayout" hidden>
+                <div>
+                    <div class="detail-gallery">
+                        <img class="detail-main-image" id="detailMainImage" alt="">
+                        <div class="detail-thumbnails" id="detailThumbnails" aria-label="Photos du bien"></div>
+                    </div>
+                    <section class="page-card detail-description-card" style="margin-top:24px;">
+                        <h2>Description</h2>
+                        <p class="detail-description" id="detailDescription"></p>
+                        <div id="detailVideoSection" hidden style="margin-top:24px;">
+                            <h3>Visite vidéo</h3>
+                            <div class="modal-video-wrap"><iframe id="detailVideo" title="Visite vidéo du bien" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+                        </div>
+                    </section>
+                </div>
+                <aside class="page-card detail-summary">
+                    <span class="section-tag" id="detailType"></span>
+                    <h2 id="detailHeading"></h2>
+                    <p class="detail-price" id="detailPrice"></p>
+                    <p id="detailStatus"></p>
+                    <div class="detail-meta" id="detailFeatures"></div>
+                    <p><i class="fas fa-eye" aria-hidden="true"></i> <span id="detailViews"></span> vues</p>
+                    <div class="detail-actions" style="margin-top:24px;">
+                        <a class="btn btn-whatsapp" id="detailWhatsapp" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Demander sur WhatsApp</a>
+                        <a class="btn btn-primary" id="detailCall" href="tel:+221789846529"><i class="fas fa-phone" aria-hidden="true"></i> Appeler IMO SN</a>
+                        <a class="btn btn-outline-primary" id="detailContact" href="contact.html"><i class="fas fa-envelope" aria-hidden="true"></i> Envoyer un message</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer class="footer"><div class="container"><div class="footer-grid">
+        <div class="footer-col footer-col--brand"><a href="index.html" class="footer-logo-wrap"><img src="assets/logo-immo.png" alt="IMO SN" class="footer-logo"></a><p class="footer-desc">Tous les biens de ce catalogue sont proposés par IMO SN.</p></div>
+        <div class="footer-col"><h2 class="footer-heading">Navigation</h2><ul class="footer-links"><li><a href="index.html">Accueil</a></li><li><a href="biens.html">Nos biens</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h2 class="footer-heading">Contact</h2><ul class="footer-contact"><li><i class="fas fa-phone"></i><a id="footerPhone" href="tel:+221789846529">+221 78 984 65 29</a></li><li><i class="fab fa-whatsapp"></i><a id="footerWhatsapp" href="https://wa.me/221789846529">WhatsApp</a></li><li><i class="fas fa-location-dot"></i><span id="footerAddress">Dakar, Sénégal</span></li></ul></div>
+    </div><div class="footer-bottom"><p>&copy; <span id="currentYear">2026</span> <strong>IMO SN</strong>. Tous droits réservés.</p></div></div></footer>
+    <div class="toast" id="toastNotification" role="status" aria-live="polite"><i class="fas fa-check-circle"></i><span id="toastMessage"></span></div>
+    <script src="config.js" onerror="window.__API_BASE_URL__=''; window.__IMO_PHONE__='+221789846529'; window.__IMO_WHATSAPP__='+221789846529';"></script>
+    <script src="script.js"></script>
+    <script src="bien.js"></script>
+</body>
+</html>

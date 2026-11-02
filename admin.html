@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Administration privée | IMO SN</title>
+    <link rel="icon" type="image/png" href="assets/logo-immo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+    <main class="admin-login-wrap" id="authView">
+        <section class="admin-login-card">
+            <a href="index.html" class="admin-brand"><img src="assets/logo-immo.png" alt="IMO SN"><span>Administration privée</span></a>
+            <div id="loginPanel">
+                <h1>Connexion administrateur</h1>
+                <p>Accès réservé à l’administrateur autorisé de IMO SN.</p>
+                <form id="loginForm" class="admin-form">
+                    <label for="loginIdentifier">Adresse e-mail</label>
+                    <input id="loginIdentifier" name="identifier" type="email" autocomplete="username" required>
+                    <label for="loginPassword">Mot de passe</label>
+                    <input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+                    <button class="admin-button admin-button-primary" type="submit">Se connecter</button>
+                </form>
+                <button class="admin-link-button" id="forgotToggle" type="button">Mot de passe oublié ?</button>
+                <form id="forgotForm" class="admin-form" hidden>
+                    <label for="forgotIdentifier">Adresse e-mail administrateur</label>
+                    <input id="forgotIdentifier" name="identifier" type="email" autocomplete="email" required>
+                    <button class="admin-button admin-button-secondary" type="submit">Recevoir un lien</button>
+                </form>
+            </div>
+            <div id="resetPanel" hidden>
+                <h1>Nouveau mot de passe</h1>
+                <p>Choisissez un mot de passe d’au moins 12 caractères.</p>
+                <form id="resetForm" class="admin-form">
+                    <label for="resetPassword">Nouveau mot de passe</label>
+                    <input id="resetPassword" type="password" autocomplete="new-password" minlength="12" required>
+                    <label for="resetPasswordConfirm">Confirmer le mot de passe</label>
+                    <input id="resetPasswordConfirm" type="password" autocomplete="new-password" minlength="12" required>
+                    <button class="admin-button admin-button-primary" type="submit">Réinitialiser</button>
+                </form>
+            </div>
+            <p class="admin-notice" id="authNotice" role="status" aria-live="polite"></p>
+            <a class="admin-back-link" href="index.html"><i class="fas fa-arrow-left" aria-hidden="true"></i> Retour au site public</a>
+        </section>
+    </main>
+
+    <div class="admin-app" id="adminApp" hidden>
+        <aside class="admin-sidebar">
+            <a href="index.html" class="admin-brand"><img src="assets/logo-immo.png" alt="IMO SN"><span>IMO SN<br><small>Administration</small></span></a>
+            <nav class="admin-nav" aria-label="Administration">
+                <button type="button" class="admin-nav-item active" data-panel="dashboard"><i class="fas fa-chart-line"></i> Vue d’ensemble</button>
+                <button type="button" class="admin-nav-item" data-panel="properties"><i class="fas fa-building"></i> Biens immobiliers</button>
+                <button type="button" class="admin-nav-item" data-panel="contacts"><i class="fas fa-inbox"></i> Demandes clients <span class="admin-nav-count" id="unreadCount"></span></button>
+                <button type="button" class="admin-nav-item" data-panel="ads"><i class="fas fa-rectangle-ad"></i> Publicités</button>
+                <button type="button" class="admin-nav-item" data-panel="settings"><i class="fas fa-sliders"></i> Informations agence</button>
+            </nav>
+            <div class="admin-sidebar-bottom">
+                <a href="index.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Voir le site</a>
+                <button type="button" id="logoutButton"><i class="fas fa-right-from-bracket"></i> Déconnexion</button>
+            </div>
+        </aside>
+
+        <section class="admin-main">
+            <header class="admin-topbar">
+                <div><p class="admin-eyebrow">Espace privé · IMO SN</p><h1 id="panelTitle">Vue d’ensemble</h1></div>
+                <div class="admin-user"><span class="admin-avatar"><i class="fas fa-user-shield"></i></span><span id="adminUserName">Administrateur</span></div>
+            </header>
+            <div class="admin-notice" id="appNotice" role="status" aria-live="polite"></div>
+            <div class="admin-content">
+                <section class="admin-panel active" id="panel-dashboard">
+                    <div class="admin-stat-grid" id="statsGrid"></div>
+                    <div class="admin-card">
+                        <div class="admin-card-heading"><div><p class="admin-eyebrow">Performance</p><h2>Biens les plus consultés</h2></div><button class="admin-button admin-button-secondary" data-goto="properties" type="button">Gérer les biens</button></div>
+                        <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Bien</th><th>Type</th><th>Vues</th></tr></thead><tbody id="topProperties"></tbody></table></div>
+                    </div>
+                </section>
+
+                <section class="admin-panel" id="panel-properties">
+                    <div class="admin-card">
+                        <div class="admin-card-heading"><div><p class="admin-eyebrow">Catalogue IMO SN</p><h2 id="propertyFormTitle">Ajouter un bien</h2></div><button type="button" class="admin-button admin-button-secondary" id="newPropertyButton"><i class="fas fa-plus"></i> Nouveau bien</button></div>
+                        <form id="propertyForm" class="admin-form admin-form-grid">
+                            <input type="hidden" id="propertyId">
+                            <label>Titre *<input id="propertyTitle" maxlength="200" required></label>
+                            <label>Opération *<select id="propertyType" required><option value="vente">Vente</option><option value="location">Location</option></select></label>
+                            <label>Catégorie *<select id="propertyCategory" required><option>Villa</option><option>Appartement</option><option>Duplex</option><option>Terrain</option><option>Local commercial</option><option>Autre</option></select></label>
+                            <label>Prix en FCFA *<input id="propertyPrice" type="number" min="1" step="1" required></label>
+                            <label>Adresse / localisation *<input id="propertyLocation" maxlength="200" required></label>
+                            <label>Ville<input id="propertyCity" maxlength="100"></label>
+                            <label>Quartier<input id="propertyNeighborhood" maxlength="100"></label>
+                            <label>Chambres<input id="propertyBedrooms" type="number" min="0" max="100" value="0"></label>
+                            <label>Salles de bain<input id="propertyBathrooms" type="number" min="0" max="100" value="0"></label>
+                            <label>Surface (m²)<input id="propertyArea" type="number" min="0" max="1000000" value="0"></label>
+                            <label>Disponibilité<select id="propertyStatus"><option value="disponible">Disponible</option><option value="loue">Loué</option><option value="vendu">Vendu</option></select></label>
+                            <label class="admin-span-2">Vidéo (URL YouTube ou Vimeo)<input id="propertyVideo" type="url" maxlength="500" placeholder="https://..."></label>
+                            <label class="admin-span-2">Description<textarea id="propertyDescription" rows="5" maxlength="5000"></textarea></label>
+                            <label class="admin-span-2">Photos (10 maximum, 2 Mo chacune · JPEG, PNG ou WebP)<input id="propertyImages" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+                            <div class="admin-span-2 admin-image-preview" id="propertyImagePreview" aria-live="polite"></div>
+                            <label class="admin-check"><input id="propertyFeatured" type="checkbox"> Mettre en vedette sur l’accueil</label>
+                            <label class="admin-check"><input id="propertyPublished" type="checkbox" checked> Publier l’annonce</label>
+                            <div class="admin-form-actions admin-span-2"><button class="admin-button admin-button-primary" type="submit">Enregistrer le bien</button><button class="admin-button admin-button-secondary" type="button" id="cancelPropertyEdit" hidden>Annuler la modification</button></div>
+                        </form>
+                    </div>
+                    <div class="admin-card"><div class="admin-card-heading"><div><p class="admin-eyebrow">Annonces maîtrisées par l’agence</p><h2>Catalogue des biens</h2></div></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Bien</th><th>Prix</th><th>Statut</th><th>Publication</th><th>Vues</th><th>Actions</th></tr></thead><tbody id="propertiesTable"></tbody></table></div></div>
+                </section>
+
+                <section class="admin-panel" id="panel-contacts">
+                    <div class="admin-card"><div class="admin-card-heading"><div><p class="admin-eyebrow">Messages reçus</p><h2>Demandes des clients</h2></div></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Client</th><th>Message</th><th>Date</th><th>État</th><th>Actions</th></tr></thead><tbody id="contactsTable"></tbody></table></div></div>
+                </section>
+
+                <section class="admin-panel" id="panel-ads">
+                    <div class="admin-card"><div class="admin-card-heading"><div><p class="admin-eyebrow">Partenaires validés par IMO SN</p><h2 id="adFormTitle">Ajouter une campagne</h2></div></div>
+                        <form id="adForm" class="admin-form admin-form-grid">
+                            <input id="adId" type="hidden">
+                            <label>Entreprise partenaire *<input id="adCompany" maxlength="200" required></label>
+                            <label>Contact référent<input id="adContact" maxlength="100"></label>
+                            <label>E-mail<input id="adEmail" type="email" maxlength="150"></label>
+                            <label>Téléphone<input id="adPhone" type="tel" maxlength="30"></label>
+                            <label>Format<input id="adFormat" maxlength="100" value="Bannière"></label>
+                            <label>Début<input id="adStartDate" type="date"></label>
+                            <label>Fin<input id="adEndDate" type="date"></label>
+                            <label>Image (URL HTTPS)<input id="adImage" type="url" maxlength="1000"></label>
+                            <label>Lien partenaire (URL HTTPS)<input id="adLink" type="url" maxlength="1000"></label>
+                            <label class="admin-span-2">Description / notes visibles<textarea id="adNotes" rows="3" maxlength="1000"></textarea></label>
+                            <label class="admin-check admin-span-2"><input id="adActive" type="checkbox" checked> Campagne validée et publiée par IMO SN</label>
+                            <div class="admin-form-actions admin-span-2"><button class="admin-button admin-button-primary" type="submit">Enregistrer la campagne</button><button class="admin-button admin-button-secondary" type="button" id="cancelAdEdit" hidden>Annuler</button></div>
+                        </form>
+                    </div>
+                    <div class="admin-card"><div class="admin-card-heading"><div><p class="admin-eyebrow">Validation éditoriale</p><h2>Espaces publicitaires et partenaires</h2></div></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Entreprise</th><th>Format</th><th>Période</th><th>Publication</th><th>Actions</th></tr></thead><tbody id="adsTable"></tbody></table></div></div>
+                </section>
+
+                <section class="admin-panel" id="panel-settings">
+                    <div class="admin-card"><div class="admin-card-heading"><div><p class="admin-eyebrow">Coordonnées publiques</p><h2>Informations de l’agence</h2></div></div>
+                        <form id="settingsForm" class="admin-form admin-form-grid">
+                            <label>Nom de l’agence<input id="configCompanyName" maxlength="200"></label>
+                            <label>Signature<input id="configTagline" maxlength="300"></label>
+                            <label>Adresse professionnelle<input id="configAddress" maxlength="300"></label>
+                            <label>Téléphone<input id="configPhone" maxlength="30"></label>
+                            <label>WhatsApp<input id="configWhatsapp" maxlength="30"></label>
+                            <label>E-mail public<input id="configEmail" type="email" maxlength="150"></label>
+                            <label>Horaires<input id="configHours" maxlength="200"></label>
+                            <label>Facebook<input id="configFacebook" type="url" maxlength="500"></label>
+                            <label>Instagram<input id="configInstagram" type="url" maxlength="500"></label>
+                            <label>LinkedIn<input id="configLinkedin" type="url" maxlength="500"></label>
+                            <label>Twitter / X<input id="configTwitter" type="url" maxlength="500"></label>
+                            <div class="admin-form-actions admin-span-2"><button class="admin-button admin-button-primary" type="submit">Enregistrer les coordonnées</button></div>
+                        </form>
+                    </div>
+                    <div class="admin-card"><div class="admin-card-heading"><div><p class="admin-eyebrow">Sécurité du compte</p><h2>Changer le mot de passe administrateur</h2></div></div>
+                        <form id="passwordForm" class="admin-form admin-form-grid">
+                            <label>Mot de passe actuel<input id="currentPassword" type="password" autocomplete="current-password" required></label>
+                            <label>Nouveau mot de passe (12 caractères minimum)<input id="newPassword" type="password" minlength="12" autocomplete="new-password" required></label>
+                            <div class="admin-form-actions admin-span-2"><button class="admin-button admin-button-secondary" type="submit">Mettre à jour le mot de passe</button></div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+    <script src="config.js" onerror="window.__API_BASE_URL__='';"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
