@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IMO SN — Votre agence immobilière de confiance au Sénégal. Vente, location et gestion de biens à Dakar, Saly et partout au Sénégal.">
+    <meta name="keywords" content="immobilier, Sénégal, Dakar, maison, appartement, location, vente, terrain, IMO SN">
+    <meta name="author" content="IMO SN">
+    <meta property="og:title" content="IMO SN | Agence Immobilière au Sénégal">
+    <meta property="og:description" content="Trouvez votre bien idéal au Sénégal avec IMO SN. Villas, appartements, terrains, locaux commerciaux.">
+    <meta property="og:type" content="website">
+    <title>IMO SN | Agence Immobilière au Sénégal — Vente & Location</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/logo-immo.png">
+    <link rel="stylesheet" href="style.css?v=20261110">
+</head>
+
+<body>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar homepage-navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="IMO SN Accueil">
+                <img src="assets/logo-immo.png" alt="Logo IMO SN" class="nav-logo-img">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#accueil" class="nav-link active">Accueil</a></li>
+                <li><a href="biens.html" class="nav-link"><i class="fas fa-city"></i> Nos Biens</a></li>
+                <li><a href="index.html#a-propos" class="nav-link">À propos</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="publicite.html" class="nav-link">Publicité</a></li>
+                <li><a href="contact.html" class="nav-link nav-link--cta"><i class="fas fa-phone"></i> Nous contacter</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode sombre" title="Changer de thème">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+
+    <!-- ===================== HERO ===================== -->
+    <header class="hero" id="accueil">
+        <img class="hero-background" src="assets/imo-hero-house.jpg" alt="" aria-hidden="true">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content">
+            <div class="hero-brand">
+                <img src="assets/logo-immo.png" alt="IMO SN — Trouvez votre maison idéale au Sénégal">
+            </div>
+            <span class="hero-badge">
+                <i class="fas fa-shield-halved"></i> Votre agence immobilière au Sénégal
+            </span>
+            <h1 class="hero-title">
+                Trouvez le bien qui vous ressemble.
+            </h1>
+            <p class="hero-subtitle">
+                Maisons, appartements, terrains et locaux commerciaux sélectionnés par IMO SN, à Dakar et partout au Sénégal.
+            </p>
+            <div class="hero-buttons">
+                <a href="#biens" class="btn btn-primary">
+                    <i class="fas fa-building"></i> Voir nos biens
+                </a>
+            </div>
+
+            <!-- Barre de recherche rapide -->
+            <div class="hero-search" id="heroSearch">
+                <div class="hero-search-field">
+                    <i class="fas fa-home"></i>
+                    <select id="searchType" aria-label="Type de transaction">
+                        <option value="all">Tous types (Vente & Location)</option>
+                        <option value="vente">À vendre</option>
+                        <option value="location">À louer</option>
+                    </select>
+                </div>
+                <div class="hero-search-field">
+                    <i class="fas fa-building"></i>
+                    <select id="searchCategory" aria-label="Catégorie">
+                        <option value="all">Toutes catégories</option>
+                        <option value="Villa">Villa</option>
+                        <option value="Appartement">Appartement</option>
+                        <option value="Duplex">Duplex</option>
+                        <option value="Terrain">Terrain</option>
+                        <option value="Local commercial">Local commercial</option>
+                    </select>
+                </div>
+                <div class="hero-search-field">
+                    <i class="fas fa-location-dot"></i>
+                    <select id="searchLocation" aria-label="Localisation">
+                        <option value="all">Toutes localisations</option>
+                        <option value="almadies">Almadies, Dakar</option>
+                        <option value="plateau">Plateau, Dakar</option>
+                        <option value="ngor">Ngor, Dakar</option>
+                        <option value="mermoz">Mermoz, Dakar</option>
+                        <option value="diamniadio">Diamniadio</option>
+                        <option value="saly">Saly, Mbour</option>
+                        <option value="saint-louis">Saint-Louis</option>
+                        <option value="thiès">Thiès</option>
+                    </select>
+                </div>
+                <button type="button" class="hero-search-btn" id="heroSearchBtn">
+                    <i class="fas fa-search"></i> Rechercher
+                </button>
+            </div>
+
+            <div class="hero-trust-signals" aria-label="Garanties IMO SN">
+                <span><i class="fas fa-check-circle"></i> Biens vérifiés</span>
+                <span><i class="fab fa-whatsapp"></i> Contact WhatsApp direct</span>
+                <span><i class="fas fa-map-location-dot"></i> Localisation précise</span>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <a href="#comment-ca-marche" aria-label="Défiler vers le bas">
+                <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+            </a>
+        </div>
+    </header>
+
+    <nav class="home-categories" aria-label="Explorer par type de bien">
+        <a href="biens.html?category=Villa"><i class="fas fa-house"></i><span>Maisons</span></a>
+        <a href="biens.html?category=Appartement"><i class="fas fa-building"></i><span>Appartements</span></a>
+        <a href="biens.html?category=Terrain"><i class="fas fa-map-location-dot"></i><span>Terrains</span></a>
+        <a href="biens.html?category=Local+commercial"><i class="fas fa-shop"></i><span>Locaux commerciaux</span></a>
+        <a href="biens.html?category=Duplex"><i class="fas fa-city"></i><span>Duplex</span></a>
+    </nav>
+
+    <!-- ===================== COMMENT ÇA MARCHE ===================== -->
+    <section class="section section--steps" id="comment-ca-marche">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Simple & Rapide</span>
+                <h2 class="section-title">Comment ça <span class="text-gradient">marche</span> ?</h2>
+                <p class="section-subtitle">Trouvez et obtenez votre bien en 3 étapes simples</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card" data-aos="fade-up">
+                    <div class="step-number">01</div>
+                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                    <h3 class="step-title">Parcourez nos biens</h3>
+                    <p class="step-desc">Consultez notre catalogue de biens sélectionnés par IMO SN à Dakar et au Sénégal. Filtrez par type, prix et localisation.</p>
+                </div>
+                <div class="step-connector">
+                    <svg viewBox="0 0 100 20" preserveAspectRatio="none">
+                        <path d="M0 10 Q25 0 50 10 Q75 20 100 10" stroke="var(--primary)" stroke-width="2" fill="none" stroke-dasharray="6 4" />
+                    </svg>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">02</div>
+                    <div class="step-icon"><i class="fas fa-phone-volume"></i></div>
+                    <h3 class="step-title">Contactez IMO SN</h3>
+                    <p class="step-desc">Appelez-nous ou envoyez un message WhatsApp directement depuis l'annonce. Un agent IMO SN vous répond rapidement.</p>
+                </div>
+                <div class="step-connector">
+                    <svg viewBox="0 0 100 20" preserveAspectRatio="none">
+                        <path d="M0 10 Q25 0 50 10 Q75 20 100 10" stroke="var(--primary)" stroke-width="2" fill="none" stroke-dasharray="6 4" />
+                    </svg>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">03</div>
+                    <div class="step-icon"><i class="fas fa-key"></i></div>
+                    <h3 class="step-title">Finalisez sereinement</h3>
+                    <p class="step-desc">IMO SN vous accompagne de la visite à la signature. Conseil juridique et administratif complet inclus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== À PROPOS ===================== -->
+    <section class="section section--about" id="a-propos">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-images" data-aos="fade-right">
+                    <div class="about-img-main">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=750&fit=crop&q=80"
+                            alt="Bureau IMO SN à Dakar" loading="lazy">
+                    </div>
+                    <div class="about-img-float">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop&q=80"
+                            alt="Villa moderne à Dakar" loading="lazy">
+                    </div>
+                    <div class="about-experience-badge">
+                        <span class="badge-number">15+</span>
+                        <span class="badge-text">Années<br>d'expérience</span>
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <span class="section-tag">Qui sommes-nous ?</span>
+                    <h2 class="section-title text-left">Votre partenaire de <span class="text-gradient">confiance</span></h2>
+                    <p class="about-text">
+                        <strong>IMO SN</strong> est une agence immobilière sénégalaise fondée avec la mission de rendre l'accès à la propriété simple, transparent et sécurisé. Basée à Dakar, nous intervenons sur l'ensemble du territoire national.
+                    </p>
+                    <p class="about-text">
+                        Contrairement aux plateformes ouvertes, <strong>IMO SN sélectionne, vérifie et publie elle-même chaque annonce</strong>. Vous avez la garantie d'interagir directement avec notre équipe professionnelle à chaque étape.
+                    </p>
+                    <div class="about-values">
+                        <div class="value-item">
+                            <div class="value-icon"><i class="fas fa-shield-halved"></i></div>
+                            <div>
+                                <h4>Confiance & Transparence</h4>
+                                <p>Chaque bien est sélectionné et vérifié par IMO SN avant publication.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon"><i class="fas fa-map-location-dot"></i></div>
+                            <div>
+                                <h4>Expertise locale</h4>
+                                <p>15 ans de connaissance approfondie du marché immobilier sénégalais.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon"><i class="fas fa-users"></i></div>
+                            <div>
+                                <h4>Accompagnement complet</h4>
+                                <p>De la recherche à la signature, IMO SN vous guide à chaque étape.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                        <a href="biens.html" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Voir nos biens
+                        </a>
+                        <a href="contact.html" class="btn btn-outline">
+                            <i class="fas fa-phone"></i> Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== BIENS EN VEDETTE ===================== -->
+    <section class="section section--properties" id="biens">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nos Offres</span>
+                <h2 class="section-title">Biens <span class="text-gradient">en vedette</span></h2>
+                <p class="section-subtitle">Sélectionnés et proposés directement par IMO SN</p>
+            </div>
+
+            <div class="property-filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="vente">Vente</button>
+                <button class="filter-btn" data-filter="location">Location</button>
+            </div>
+
+            <!-- Grille chargée dynamiquement depuis l'API -->
+            <div class="properties-grid" id="propertiesGrid">
+                <!-- Squelettes de chargement -->
+                <div class="property-skeleton"></div>
+                <div class="property-skeleton"></div>
+                <div class="property-skeleton"></div>
+            </div>
+
+            <div style="text-align: center; margin-top: 48px;" data-aos="fade-up">
+                <a href="biens.html" class="btn btn-primary" style="padding: 16px 36px; font-size: 1.05rem; box-shadow: var(--shadow-lg);">
+                    <i class="fas fa-city"></i> Accéder au Catalogue Complet
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CHIFFRES CLÉS ===================== -->
+    <section class="section section--stats" id="stats" aria-labelledby="statsTitle">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">IMO SN en chiffres</span>
+                <h2 class="section-title" id="statsTitle">Un partenaire immobilier <span class="text-gradient">de confiance</span></h2>
+                <p class="section-subtitle">Une expertise reconnue et une présence au plus près de vos projets partout au Sénégal.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="fade-up">
+                    <div class="stat-icon"><i class="fas fa-building"></i></div>
+                    <div class="stat-number" id="statBiens">—</div>
+                    <div class="stat-label">Biens disponibles</div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon"><i class="fas fa-eye"></i></div>
+                    <div class="stat-number" id="statVues">—</div>
+                    <div class="stat-label">Vues totales</div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Années d'expérience</div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon"><i class="fas fa-map-location-dot"></i></div>
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Villes couvertes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== TÉMOIGNAGES ===================== -->
+    <section class="section section--testimonials" id="temoignages">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Avis Clients</span>
+                <h2 class="section-title">Ce que disent <span class="text-gradient">nos clients</span></h2>
+                <p class="section-subtitle">Découvrez les expériences de ceux qui nous ont fait confiance</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Grâce à IMO SN, j'ai trouvé l'appartement parfait aux Almadies en moins de deux semaines. L'équipe est professionnelle et très réactive. Je recommande vivement !"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: linear-gradient(135deg, #0e5ed8, #1970e8);"><span>AF</span></div>
+                        <div>
+                            <h4 class="testimonial-name">Aminata FALL</h4>
+                            <p class="testimonial-role">Acheteuse — Almadies, Dakar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"IMO SN gère mes 3 appartements depuis 2 ans. Zéro souci, ils s'occupent de tout. Service exceptionnel et équipe de confiance !"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: linear-gradient(135deg, #0a2d8d, #0d43b4);"><span>CF</span></div>
+                        <div>
+                            <h4 class="testimonial-name">Cheikhouna FALL</h4>
+                            <p class="testimonial-role">Propriétaire — Plateau, Dakar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i>
+                    </div>
+                    <p class="testimonial-text">"Mon terrain à Diamniadio trouvé en un temps record. La transparence du processus et l'accompagnement juridique m'ont totalement mis en confiance. Merci IMO SN !"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f5c34a, #e8a820);"><span>FN</span></div>
+                        <div>
+                            <h4 class="testimonial-name">Fatou Ndiaye</h4>
+                            <p class="testimonial-role">Acheteuse — Diamniadio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CTA CONTACT ===================== -->
+    <section class="section section--cta">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-content">
+                    <h2>Prêt à trouver votre bien idéal ?</h2>
+                    <p>Contactez nos conseillers dès maintenant et bénéficiez d'un accompagnement personnalisé et gratuit.</p>
+                    <div class="hero-buttons">
+                        <a href="tel:+221789846529" class="btn btn-primary btn-white" id="ctaCallBtn">
+                            <i class="fas fa-phone"></i> Nous appeler
+                        </a>
+                        <a href="https://wa.me/221789846529?text=Bonjour%20IMO%20SN%2C%20je%20souhaite%20des%20informations%20sur%20vos%20biens." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer" id="ctaWhatsAppBtn">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer" id="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C320,120 720,0 1440,60 L1440,120 L0,120 Z" fill="var(--dark)" />
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col--brand">
+                    <a href="index.html" class="footer-logo-wrap" aria-label="IMO SN Accueil">
+                        <img src="assets/logo-immo.png" alt="Logo IMO SN" class="footer-logo">
+                    </a>
+                    <p class="footer-desc">Votre agence immobilière de confiance au Sénégal. Vente, location et gestion de biens depuis 2010.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-link" aria-label="Facebook" id="footerFacebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram" id="footerInstagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn" id="footerLinkedin"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter" id="footerTwitter"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#accueil">Accueil</a></li>
+                        <li><a href="biens.html">Nos biens</a></li>
+                        <li><a href="index.html#a-propos">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="publicite.html">Publicité</a></li>
+                        <li><a href="admin.html">Administration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Nos Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="biens.html?type=vente">Vente immobilière</a></li>
+                        <li><a href="biens.html?type=location">Location</a></li>
+                        <li><a href="contact.html">Gestion locative</a></li>
+                        <li><a href="contact.html">Conseil juridique</a></li>
+                        <li><a href="contact.html">Estimation gratuite</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-location-dot"></i>
+                            <span id="footerAddress">Malika, Cité Sonatel, Sénégal</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+221789846529" id="footerPhone">+221 78 984 65 29</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/221789846529" target="_blank" rel="noopener" id="footerWhatsapp">WhatsApp</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contact@imo-sn.com" id="footerEmail">contact@imo-sn.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span id="footerHours">Lun - Sam : 8h - 18h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>IMO SN</strong>. Tous droits réservés.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================== BOUTON CHAT FLOTTANT ===================== -->
+    <div class="fab-buttons" id="fabButtons">
+        <a href="https://wa.me/221789846529?text=Bonjour%20IMO%20SN%2C%20je%20souhaite%20des%20informations." class="fab-btn fab-whatsapp" target="_blank" rel="noopener noreferrer" title="WhatsApp IMO SN" id="fabWhatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+221789846529" class="fab-btn fab-phone" title="Appeler IMO SN" id="fabPhone">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- ===================== BACK TO TOP ===================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ===================== MODAL DÉTAILS PROPRIÉTÉ ===================== -->
+    <div class="property-modal" id="propertyModal" aria-hidden="true" role="dialog" aria-labelledby="modalPropertyTitle">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Fermer la fenêtre">
+                <i class="fas fa-xmark"></i>
+            </button>
+
+            <!-- Galerie photos -->
+            <div class="modal-gallery" id="modalGallery">
+                <img id="modalPropertyImg" src="" alt="Photo du bien">
+                <div class="modal-gallery-thumbs" id="modalGalleryThumbs"></div>
+                <span class="modal-badge" id="modalPropertyBadge">À vendre</span>
+                <span class="modal-status-badge" id="modalStatusBadge"></span>
+                <span class="property-views-badge" id="modalPropertyViews" style="top: 20px; right: 20px;">
+                    <i class="fas fa-eye"></i> <span id="modalViewsCount">0</span> vues
+                </span>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-header">
+                    <div>
+                        <h3 class="modal-title" id="modalPropertyTitle">Titre du bien</h3>
+                        <p class="modal-location" id="modalPropertyLocation">
+                            <i class="fas fa-location-dot"></i> Localisation
+                        </p>
+                    </div>
+                    <div class="modal-price" id="modalPropertyPrice">0 FCFA</div>
+                </div>
+                <div class="modal-features" id="modalPropertyFeatures"></div>
+                <p class="modal-desc" id="modalPropertyDesc">Description détaillée du bien...</p>
+
+                <!-- Vidéo si disponible -->
+                <div id="modalVideoSection" style="display:none; margin-top: 16px;">
+                    <h4 style="margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <i class="fas fa-video"></i> Visite vidéo
+                    </h4>
+                    <div class="modal-video-wrap">
+                        <iframe id="modalVideoFrame" src="" title="Visite vidéo du bien" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Bloc Contact IMO SN -->
+                <div class="modal-imo-contact">
+                    <div class="imo-contact-header">
+                        <img src="assets/logo-immo.png" alt="IMO SN" class="imo-contact-logo">
+                        <div>
+                            <strong>IMO SN — Agence officielle</strong>
+                            <span class="verified-badge"><i class="fas fa-check-circle"></i> Agence vérifiée</span>
+                        </div>
+                    </div>
+                    <p style="font-size:0.88rem; color: var(--text-secondary); margin-bottom: 12px;">
+                        Contactez directement notre agence pour plus d'informations ou pour organiser une visite.
+                    </p>
+                </div>
+
+                <div class="modal-actions">
+                    <a href="#" id="modalWhatsAppBtn" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> WhatsApp IMO SN
+                    </a>
+                    <a href="tel:+221789846529" id="modalCallBtn" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Appeler
+                    </a>
+                    <button type="button" id="modalContactFormBtn" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Envoyer un message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== MINI FORMULAIRE CONTACT (modal) ===================== -->
+    <div class="contact-mini-modal" id="contactMiniModal" aria-hidden="true">
+        <div class="modal-backdrop" id="contactMiniBackdrop" aria-hidden="true"></div>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contactMiniTitle" aria-describedby="contactMiniDescription">
+            <button class="modal-close" id="contactMiniClose" type="button" aria-label="Fermer"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+            <div class="modal-body">
+                <h3 id="contactMiniTitle">Envoyer un message</h3>
+                <p class="contact-mini-description" id="contactMiniDescription">Nous vous répondrons dans les plus brefs délais.</p>
+                <input type="hidden" id="contactPropertyId">
+                <input type="hidden" id="contactPropertyTitle">
+                <form id="contactMiniForm">
+                    <div class="form-group-inline">
+                        <div class="form-group">
+                            <label for="contactName">Votre nom *</label>
+                            <input type="text" id="contactName" name="name" autocomplete="name" placeholder="Prénom et nom" required maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Téléphone</label>
+                            <input type="tel" id="contactPhone" name="phone" autocomplete="tel" placeholder="+221 77 000 00 00" maxlength="30">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">E-mail</label>
+                        <input type="email" id="contactEmail" name="email" autocomplete="email" placeholder="votre@email.com" maxlength="150">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Votre message *</label>
+                        <textarea id="contactMessage" name="message" rows="4" placeholder="Je suis intéressé(e) par ce bien..." required maxlength="2000"></textarea>
+                    </div>
+                    <div id="contactMiniAlert" class="auth-alert" role="status" aria-live="polite" style="display:none;"></div>
+                    <button type="submit" class="btn btn-primary" id="contactMiniSubmit">
+                        <i class="fas fa-paper-plane"></i> Envoyer le message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== TOAST NOTIFICATION ===================== -->
+    <div class="toast" id="toastNotification" role="status" aria-live="polite">
+        <i class="fas fa-check-circle" style="color: var(--cyan-400);"></i>
+        <span id="toastMessage">Action effectuée</span>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="config.js" onerror="window.__API_BASE_URL__=''; window.__IMO_PHONE__='+221789846529'; window.__IMO_WHATSAPP__='+221789846529';"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

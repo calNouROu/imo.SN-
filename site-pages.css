@@ -1,0 +1,218 @@
+.page-hero {
+    padding: 150px 0 70px;
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(130deg, #061536 0%, #1040b2 58%, #0e7490 100%);
+}
+
+.page-hero .section-tag { color: #fff; background: rgba(255,255,255,.13); border-color: rgba(255,255,255,.3); }
+
+.page-hero h1 {
+    margin: 14px auto;
+    max-width: 850px;
+    color: #fff;
+    font: 800 clamp(2.2rem, 5vw, 4rem)/1.08 var(--font-heading);
+}
+
+.page-hero p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: rgba(255,255,255,.82);
+}
+
+.page-content {
+    padding: 64px 0 88px;
+}
+
+.page-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    align-items: start;
+}
+
+.page-card {
+    padding: 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.page-card h2,
+.page-card h3 {
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+}
+
+.page-card p {
+    color: var(--text-muted);
+}
+
+.page-contact-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 22px;
+    list-style: none;
+}
+
+.page-contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.page-contact-list i {
+    width: 22px;
+    margin-top: 5px;
+    color: var(--primary-600);
+}
+
+.page-form {
+    display: grid;
+    gap: 16px;
+}
+
+.page-form input,
+.page-form select,
+.page-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    color: var(--text-main);
+    font: inherit;
+    background: var(--bg-page);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+}
+
+.page-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.page-form input:focus,
+.page-form select:focus,
+.page-form textarea:focus {
+    outline: 3px solid rgba(37,99,235,.2);
+    border-color: var(--primary-500);
+}
+
+.page-form-status {
+    min-height: 1.5em;
+    color: var(--text-muted);
+}
+
+.page-form-status[data-state="error"] { color: #b91c1c; }
+.page-form-status[data-state="success"] { color: #047857; }
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+}
+
+.offer-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.offer-card .offer-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    color: #fff;
+    background: var(--gradient-primary);
+    border-radius: 14px;
+}
+
+.offer-card .btn { align-self: flex-start; margin-top: auto; }
+
+.property-detail-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(280px, .7fr);
+    gap: 30px;
+    align-items: start;
+}
+
+.detail-gallery {
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+}
+
+.detail-main-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    background: var(--bg-alt);
+}
+
+.detail-thumbnails {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 12px;
+}
+
+.detail-thumbnails button {
+    flex: 0 0 88px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    border-radius: 8px;
+}
+
+.detail-thumbnails button[aria-pressed="true"] { border-color: var(--primary-600); }
+
+.detail-thumbnails img {
+    display: block;
+    width: 100%;
+    height: 64px;
+    object-fit: cover;
+}
+
+.property-detail-layout[hidden],
+#detailVideoSection[hidden] { display: none; }
+
+.detail-summary {
+    position: sticky;
+    top: 100px;
+}
+
+.detail-price {
+    margin: 10px 0 18px;
+    color: var(--primary-700);
+    font: 800 clamp(1.5rem, 3vw, 2.2rem)/1.15 var(--font-heading);
+}
+
+.detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
+    color: var(--text-muted);
+}
+
+.detail-description {
+    margin-top: 26px;
+    color: var(--text-muted);
+    white-space: pre-line;
+}
+
+.detail-actions { display: grid; gap: 10px; }
+.detail-actions .btn { justify-content: center; }
+.catalogue-error { grid-column: 1 / -1; color: var(--text-muted); }
+.offer-card > img { width: 100%; max-height: 220px; object-fit: cover; border-radius: 10px; }
+
+@media (max-width: 760px) {
+    .page-hero { padding: 125px 0 52px; }
+    .page-content { padding: 42px 0 60px; }
+    .page-grid,
+    .property-detail-layout { grid-template-columns: 1fr; }
+    .offer-grid { grid-template-columns: 1fr; }
+    .detail-summary { position: static; }
+}

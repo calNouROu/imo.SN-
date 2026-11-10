@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catalogue complet des biens immobiliers IMO SN au Sénégal : villas, appartements, terrains, locaux commerciaux à Dakar, Saly et partout au Sénégal.">
+    <meta name="keywords" content="immobilier Sénégal, biens Dakar, villas Almadies, location Plateau, vente terrain Diamniadio, IMO SN">
+    <title>Nos Biens Immobiliers | IMO SN — Agence au Sénégal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/logo-immo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="IMO SN Accueil">
+                <img src="assets/logo-immo.png" alt="Logo IMO SN" class="nav-logo-img">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="biens.html" class="nav-link active"><i class="fas fa-city"></i> Nos Biens</a></li>
+                <li><a href="index.html#a-propos" class="nav-link">À propos</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="publicite.html" class="nav-link">Publicité</a></li>
+                <li><a href="contact.html" class="nav-link nav-link--cta"><i class="fas fa-phone"></i> Nous contacter</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode sombre">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+
+    <!-- HEADER BANNIÈRE -->
+    <header class="biens-header-banner">
+        <div class="biens-banner-overlay"></div>
+        <div class="container" style="position:relative; z-index:2;">
+            <span class="section-tag" style="background:rgba(255,255,255,0.15); color:#fff; border-color:rgba(255,255,255,0.3);">
+                <i class="fas fa-building-circle-check"></i> Catalogue Officiel IMO SN
+            </span>
+            <h1 class="section-title" style="color:#fff; margin-top:12px;">Nos Biens <span class="text-gradient">Immobiliers</span></h1>
+            <p class="section-subtitle" style="color:rgba(255,255,255,0.85); max-width:640px; margin:0 auto;">
+                Tous nos biens sont sélectionnés, vérifiés et publiés directement par l'agence IMO SN. Contactez-nous pour toute demande.
+            </p>
+        </div>
+    </header>
+
+    <!-- BARRE DE FILTRES AVANCÉE -->
+    <div class="biens-filters-wrapper">
+        <div class="container">
+            <div class="biens-filter-toolbar" id="filterToolbar">
+
+                <!-- Recherche texte -->
+                <div class="toolbar-field toolbar-field--search">
+                    <i class="fas fa-magnifying-glass"></i>
+                    <input type="text" id="biensSearchInput" placeholder="Villa, vue mer, Almadies..." aria-label="Recherche">
+                </div>
+
+                <!-- Type -->
+                <div class="toolbar-field">
+                    <i class="fas fa-tag"></i>
+                    <select id="biensType" aria-label="Type">
+                        <option value="all">Vente & Location</option>
+                        <option value="vente">À vendre</option>
+                        <option value="location">À louer</option>
+                    </select>
+                </div>
+
+                <!-- Catégorie -->
+                <div class="toolbar-field">
+                    <i class="fas fa-building"></i>
+                    <select id="biensCategory" aria-label="Catégorie">
+                        <option value="all">Toutes catégories</option>
+                        <option value="Villa">Villa</option>
+                        <option value="Appartement">Appartement</option>
+                        <option value="Duplex">Duplex</option>
+                        <option value="Terrain">Terrain</option>
+                        <option value="Local commercial">Local commercial</option>
+                    </select>
+                </div>
+
+                <!-- Localisation -->
+                <div class="toolbar-field">
+                    <i class="fas fa-location-dot"></i>
+                    <select id="biensLocation" aria-label="Localisation">
+                        <option value="all">Toutes localisations</option>
+                        <option value="almadies">Almadies</option>
+                        <option value="plateau">Plateau</option>
+                        <option value="ngor">Ngor</option>
+                        <option value="mermoz">Mermoz</option>
+                        <option value="diamniadio">Diamniadio</option>
+                        <option value="saly">Saly, Mbour</option>
+                        <option value="saint-louis">Saint-Louis</option>
+                        <option value="thiès">Thiès</option>
+                    </select>
+                </div>
+
+                <!-- Budget max -->
+                <div class="toolbar-field">
+                    <i class="fas fa-coins"></i>
+                    <select id="biensBudget" aria-label="Budget maximum">
+                        <option value="">Tous budgets</option>
+                        <option value="5000000">jusqu'à 5M FCFA</option>
+                        <option value="25000000">jusqu'à 25M FCFA</option>
+                        <option value="50000000">jusqu'à 50M FCFA</option>
+                        <option value="100000000">jusqu'à 100M FCFA</option>
+                        <option value="200000000">jusqu'à 200M FCFA</option>
+                    </select>
+                </div>
+
+                <button type="button" class="hero-search-btn" id="biensSearchBtn">
+                    <i class="fas fa-search"></i> Filtrer
+                </button>
+
+                <button type="button" class="btn-reset-filters" id="biensResetBtn" title="Réinitialiser les filtres">
+                    <i class="fas fa-rotate-left"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RÉSULTATS -->
+    <main class="biens-main">
+        <div class="container">
+            <!-- Barre d'infos résultats -->
+            <div class="biens-results-bar">
+                <span id="biensResultsCount" class="results-count">Chargement...</span>
+                <div class="biens-sort">
+                    <label for="biensSort"><i class="fas fa-sort"></i></label>
+                    <select id="biensSort" aria-label="Trier par">
+                        <option value="featured">Vedettes d'abord</option>
+                        <option value="price-asc">Prix croissant</option>
+                        <option value="price-desc">Prix décroissant</option>
+                        <option value="recent">Plus récents</option>
+                        <option value="views">Plus vus</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Grille des biens -->
+            <div class="properties-grid" id="biensGrid">
+                <div class="property-skeleton"></div>
+                <div class="property-skeleton"></div>
+                <div class="property-skeleton"></div>
+                <div class="property-skeleton"></div>
+                <div class="property-skeleton"></div>
+                <div class="property-skeleton"></div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="biens-pagination" id="biensPagination"></div>
+        </div>
+    </main>
+
+    <!-- CTA CONTACT -->
+    <section class="section section--cta" style="padding: 60px 0;">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-content">
+                    <h2>Vous ne trouvez pas ce que vous cherchez ?</h2>
+                    <p>Décrivez votre projet à IMO SN. Nous avons peut-être le bien idéal pour vous dans notre portefeuille.</p>
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="btn btn-primary btn-white">
+                            <i class="fas fa-envelope"></i> Nous écrire
+                        </a>
+                        <a href="https://wa.me/221789846529?text=Bonjour%20IMO%20SN%2C%20je%20cherche%20un%20bien..." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer" id="biensCtaWa">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-wave"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C320,120 720,0 1440,60 L1440,120 L0,120 Z" fill="var(--dark)"/></svg></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col--brand">
+                    <a href="index.html" class="footer-logo-wrap"><img src="assets/logo-immo.png" alt="Logo IMO SN" class="footer-logo"></a>
+                    <p class="footer-desc">Votre agence immobilière de confiance au Sénégal.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="biens.html">Nos biens</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="publicite.html">Publicité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i><a href="tel:+221789846529">+221 78 984 65 29</a></li>
+                        <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/221789846529" target="_blank" rel="noopener">WhatsApp</a></li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:contact@imo-sn.com">contact@imo-sn.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>IMO SN</strong>. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAB -->
+    <div class="fab-buttons">
+        <a href="https://wa.me/221789846529?text=Bonjour%20IMO%20SN" class="fab-btn fab-whatsapp" target="_blank" rel="noopener" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+221789846529" class="fab-btn fab-phone" title="Appeler">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- MODAL DÉTAIL (partagée) -->
+    <div class="property-modal" id="propertyModal" aria-hidden="true" role="dialog" aria-labelledby="modalPropertyTitle">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Fermer"><i class="fas fa-xmark"></i></button>
+            <div class="modal-gallery" id="modalGallery">
+                <img id="modalPropertyImg" src="" alt="Photo du bien">
+                <div class="modal-gallery-thumbs" id="modalGalleryThumbs"></div>
+                <span class="modal-badge" id="modalPropertyBadge">À vendre</span>
+                <span class="modal-status-badge" id="modalStatusBadge"></span>
+                <span class="property-views-badge" style="top:20px;right:20px;"><i class="fas fa-eye"></i> <span id="modalViewsCount">0</span> vues</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <div>
+                        <h3 class="modal-title" id="modalPropertyTitle">Titre</h3>
+                        <p class="modal-location" id="modalPropertyLocation"><i class="fas fa-location-dot"></i> Localisation</p>
+                    </div>
+                    <div class="modal-price" id="modalPropertyPrice">0 FCFA</div>
+                </div>
+                <div class="modal-features" id="modalPropertyFeatures"></div>
+                <p class="modal-desc" id="modalPropertyDesc"></p>
+                <div id="modalVideoSection" style="display:none; margin-top:16px;">
+                    <h4 style="margin-bottom:8px; color:var(--text-secondary); font-size:0.9rem; text-transform:uppercase;">
+                        <i class="fas fa-video"></i> Visite vidéo
+                    </h4>
+                    <div class="modal-video-wrap">
+                        <iframe id="modalVideoFrame" src="" title="Visite vidéo" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="modal-imo-contact">
+                    <div class="imo-contact-header">
+                        <img src="assets/logo-immo.png" alt="IMO SN" class="imo-contact-logo">
+                        <div>
+                            <strong>IMO SN — Agence officielle</strong>
+                            <span class="verified-badge"><i class="fas fa-check-circle"></i> Agence vérifiée</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <a href="#" id="modalWhatsAppBtn" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> WhatsApp IMO SN
+                    </a>
+                    <a href="tel:+221789846529" id="modalCallBtn" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Appeler
+                    </a>
+                    <button type="button" id="modalContactFormBtn" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MINI FORMULAIRE CONTACT -->
+    <div class="contact-mini-modal" id="contactMiniModal" aria-hidden="true">
+        <div class="modal-backdrop" id="contactMiniBackdrop" aria-hidden="true"></div>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contactMiniTitle" aria-describedby="contactMiniDescription">
+            <button class="modal-close" id="contactMiniClose" type="button" aria-label="Fermer"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+            <div class="modal-body">
+                <h3 id="contactMiniTitle">Envoyer un message</h3>
+                <p class="contact-mini-description" id="contactMiniDescription">Nous vous répondrons dans les plus brefs délais.</p>
+                <input type="hidden" id="contactPropertyId">
+                <input type="hidden" id="contactPropertyTitle">
+                <form id="contactMiniForm">
+                    <div class="form-group-inline">
+                        <div class="form-group">
+                            <label for="contactName">Votre nom *</label>
+                            <input type="text" id="contactName" name="name" autocomplete="name" placeholder="Prénom et nom" required maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Téléphone</label>
+                            <input type="tel" id="contactPhone" name="phone" autocomplete="tel" placeholder="+221 77 000 00 00" maxlength="30">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">E-mail</label>
+                        <input type="email" id="contactEmail" name="email" autocomplete="email" placeholder="votre@email.com" maxlength="150">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Votre message *</label>
+                        <textarea id="contactMessage" name="message" rows="4" placeholder="Je suis intéressé(e) par ce bien..." required maxlength="2000"></textarea>
+                    </div>
+                    <div id="contactMiniAlert" class="auth-alert" role="status" aria-live="polite" style="display:none;"></div>
+                    <button type="submit" class="btn btn-primary" id="contactMiniSubmit">
+                        <i class="fas fa-paper-plane"></i> Envoyer le message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toastNotification" role="status" aria-live="polite">
+        <i class="fas fa-check-circle" style="color:var(--cyan-400);"></i>
+        <span id="toastMessage">Action effectuée</span>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="config.js" onerror="window.__API_BASE_URL__=''; window.__IMO_PHONE__='+221789846529'; window.__IMO_WHATSAPP__='+221789846529';"></script>
+    <script src="script.js"></script>
+    <script src="biens.js"></script>
+</body>
+</html>
